@@ -1,127 +1,117 @@
 {
-  "ornament-gun": {
-    "shoot-ornaments": {
+  "tools": {
+    "command-prompt": {
+      "dependencies": ["mvp"],
+      "icon": "assets/command-line.png",
+      "display-name": "Custom Command Prompt",
+      "blurb": "Developers can write CLI tools used inside of ROBLOX games",
+      "completed": "12-12-23"
+    },
+    "user-testing": {
+      "dependencies": ["command-prompt"],
+      "icon": "assets/check-mark-shield.png",
+      "display-name": "Acceptance Testing Tool",
+      "blurb": "Write tests that any user can play and verify using the command line",
+      "completed": "1-1-2024"
+    },
+    "physics-lab": {
+      "dependencies": ["mvp"],
+      "icon": "assets/beaker.png",
+      "display-name": "Automated Testing for Physics",
+      "blurb": "Run physics experiments in parallel for integration testing physics-based features"
+    }
+  },
+  "misc": {
+    "mvp": {
       "dependencies": [],
-      "icon": "assets/ornament-gun.jpg",
-      "display-name": "Christmas Ornament Gun",
-      "blurb": "A gun shoots ornaments and sticks them on a christmas tree.",
-      "started": "1-12-2024",
-      "completed": "1-13-2024"
-    },
-    "ornaments-are-platforms": {
-      "dependencies": ["shoot-ornaments"],
-      "icon": "assets/platform.png",
-      "display-name": "Ornaments Are Platforms",
-      "blurb": "The ornaments can be jumped on by players",
-      "completed": "1-14-2024"
-    },
-    "obstacle-gun": {
-      "dependencies": ["spikes", "walls"],
-      "icon": "assets/obstacle-gun.jpg",
-      "display-name": "Guns That Shoot Obstacles",
-      "blurb": "A variant of the ornament gun shoots spikes, walls, etc."
+      "icon": "assets/blueprint.png",
+      "display-name": "Minimum Viable Product",
+      "blurb": "Build a prototype with the core functionality of the game and test if it's fun.",
+      "completed": "12-12-23"
     }
   },
-  "obstacles": {
-    "spikes": {
-      "dependencies": ["first-level"],
-      "icon": "assets/spiky-ball.jpg",
-      "display-name": "Dangerous Spikes",
-      "blurb": "Spikes hurt players upon touch",
-      "started": "1-17-2024"
-    },
-    "walls": {
-      "dependencies": ["first-level"],
-      "icon": "assets/brick-wall.jpg",
-      "display-name": "Breakable Walls",
-      "blurb": "Walls prevent players from moving up the tree and can be broken with ornaments",
-      "completed": "1-16-2024"
-    },
-    "save-checkpoints": {
-      "dependencies": ["first-level"],
-      "display-name": "Save Checkpoints",
-      "blurb": "Players touch a checkpoint to respawn there if they die"
+  "world-design": {
+    "first-solar-system": {
+      "dependencies": ["gravitational-stability"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Build a Solar System",
+      "blurb": "A set of planets, moons, and asteroids orbiting a single star"
     }
   },
-  "level-design": {
-    "first-level": {
-      "dependencies": ["ornaments-are-platforms"],
-      "icon": "assets/christmas-tree.jpg",
-      "display-name": "The First Level",
-      "blurb": "Players must climb a christmas tree using only the ornaments from their gun and their wits",
-      "completed": "1-15-2024"
+  "physics": {
+    "world-environment": {
+      "dependencies": ["user-testing"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Round Planets",
+      "blurb": "The game can save/load round 2d worlds, which are a collection of blocks and air"
     },
-    "team-deathmatch": {
-      "dependencies": ["obstacle-gun"],
-      "icon": "assets/team-deathmatch.jpg",
-      "display-name": "Climbers vs Opponents",
-      "blurb": "One team climbs the tree, the other team places obstacles in their path"
+    "ship-environment": {
+      "dependencies": ["user-testing"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Insides of Spaceships & Buildings",
+      "blurb": "The game can save/load flat 2d rooms, which are a collection of blocks and air"
     },
-    "floor-is-lava": {
-      "dependencies": ["first-level"],
-      "icon": "assets/volcano.jpg",
-      "display-name": "The Floor Is Lava",
-      "blurb": "Players must scramble up the tree before melting in quickly rising lava",
-      "completed": "1-16-2024"
+    "moving-objects": {
+      "dependencies": ["physics-lab", "ship-environment", "world-environment"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Inanimate Moving Objects",
+      "blurb": "The game can save/load objects that feel gravity & collide with blocks"
     },
-    "golf": {
-      "dependencies": ["first-level"],
-      "icon": "assets/golf.png",
-      "display-name": "Ornament Golf",
-      "blurb": "Climb the tree using as few ornaments as possible",
-      "started": "1-17-2024"
+    "gravitational-stability": {
+      "dependencies": ["moving-objects"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Stable Orbits",
+      "blurb": "Stable celestial bodies are guaranteed not to crash into each other and create a mess"
+    },
+    "characters": {
+      "dependencies": ["moving-objects"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Characters",
+      "blurb": "The game can spawn characters, which die, respawn, move, and jump"
+    },
+    "proximity-prompt": {
+      "dependencies": ["characters"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Interactive Buttons",
+      "blurb": "Characters can walk up to button blocks & press them"
+    },
+    "buildings": {
+      "dependencies": ["proximity-prompt"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Buildings With Interiors",
+      "blurb": "Characters can walk into ships/buildings, which have a bigger, separate environment on the 'inside'"
+    },
+    "chairs": {
+      "dependencies": ["proximity-prompt"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Sitting in Chairs",
+      "blurb": "Characters can sit in chairs"
+    },
+    "space-ships": {
+      "dependencies": ["chairs", "buildings"],
+      "icon": "assets/default-icon.png",
+      "display-name": "",
+      "blurb": ""
     }
   },
-  "progression": {
-    "collectible-items": {
-      "dependencies": ["first-level"],
-      "icon": "assets/mario-star.jpg",
-      "display-name": "Points for Collecting Items",
-      "blurb": "Players earn points for picking up rare items"
+  "player-controls": {
+    "character-controls": {
+      "dependencies": ["characters"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Character Controls",
+      "blurb": "Players can spawn a character they control with keyboard/mouse"
     },
-    "points-for-blocking": {
-      "dependencies": ["team-deathmatch"],
-      "icon": "assets/block.jpg",
-      "display-name": "Points for Blocking",
-      "blurb": "Players earn points for preventing opponents from climbing"
-    }
-  },
-  "sfx": {
-    "game-music": {
-      "dependencies": ["first-level"],
-      "icon": "assets/jukebox.jpg",
-      "display-name": "Fill the Silence",
-      "blurb": "Festive music plays during the game"
+    "mobile-character-controls": {
+      "dependencies": ["character-controls"],
+      "icon": "assets/default-icon.png",
+      "display-name": "Mobile Controls",
+      "blurb": "Players can control characters on mobile devices"
     },
-    "custom-music": {
-      "dependencies": ["game-music"],
-      "icon": "assets/beethoven.jpg",
-      "display-name": "Compose a custom soundtrack",
-      "blurb": "Write and perform original music for the game"
-    }
-  },
-  "advertising": {
-    "basic-icon": {
-      "dependencies": ["first-level"],
-      "icon": "assets/icon.png",
-      "display-name": "Game Icon",
-      "blurb": "Make the game visible/advertisable to ROBLOX users"
-    }
-  },
-  "art": {
-    "define-art-style": {
-      "dependencies": ["points-for-blocking"],
-      "icon": "assets/starry-night.jpg",
-      "display-name": "Curate a Consistent Art Style",
-      "blurb": "Carefully select in-game props and meshes to adhere to a festive theme"
-    }
-  },
-  "lobby": {
-    "vote-next-round": {
-      "dependencies": ["team-deathmatch", "golf", "floor-is-lava"],
-      "icon": "assets/congress.jpg",
-      "display-name": "Vote Next Round",
-      "blurb": "Players decide which game mode to play for the next round"
+    "xbox-character-controls": {
+      "dependencies": ["character-controls"],
+      "icon": "assets/default-icon.png",
+      "display-name": "XBox Controls",
+      "blurb": "Players can control characters on the xbox"
     }
   }
 }
