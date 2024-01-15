@@ -1,8 +1,9 @@
-import graphJson from "./tech-tree.json" assert { type: "json" };
+// import graphJson from "./tech-tree.json" assert { type: "json" }; // this isn't supported by Mozilla FireFox
 const techTreeContainer = document.querySelector(".tech-tree");
 const techTreeEdgesContainer = document.querySelector(".tech-tree-edges");
 const startButton = document.querySelector(".start-btn");
 
+const TECH_TREE_FILE = "./tech-tree.json";
 const DEFAULT_ICON = "assets/default-icon.png";
 const LOCK_ICON = "assets/lock.png";
 const UNKNOWN_ICON = "assets/question-mark.png";
@@ -261,4 +262,12 @@ function generateTechTree(techTreeJson) {
   });
 }
 
-generateTechTree(graphJson);
+// load tech tree from JSON file
+fetch(TECH_TREE_FILE)
+.then(function(response) {
+  if (!response.ok) {
+    throw new Error("HTTP error " + response.status);
+  }
+  return response.json();
+})
+.then(generateTechTree);
