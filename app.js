@@ -13,6 +13,9 @@ const UNKNOWN_INDEX = 20; // completionIndex at which nodes are marked unknown i
 // completionIndex=0 for nodes that are completed; completionIndex=1 for nodes that have a completed dependency; etc etc
 const BIG_NUMBER = 10 ^ 6; // completion index can't be bigger than this... idk how javascript works yet lol
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 function unpackGraphDependencies(dependencies) {
   // @return: Array rowIndexToNodes (int rowIndex --> [ string nodeName ])
   // @return: Object nodeToRowIndex (string nodeName --> int rowIndex)
@@ -63,7 +66,6 @@ function unpackGraphDependencies(dependencies) {
 
   return [rowIndexToNodes, nodeToRowIndex];
 }
-
 function unpackGraphCompletion(techTreeUpgrades) {
   const nodeToCompletionIndex = {};
 
@@ -253,13 +255,20 @@ function generateTechTree(techTreeJson) {
   onScreenResize();
 
   // support "back to start" button
-  startButton.addEventListener("click", function () {
+  function backToStart() {
     const firstNodeName = rowIndexToNodes[0][0];
     const firstNodeIcon = nodeIcons[firstNodeName];
     if (firstNodeIcon) {
-      firstNodeIcon.scrollIntoView();
+      firstNodeIcon.scrollIntoView({
+        "block": "center",
+        "inline": "center"
+      });
     }
-  });
+  }
+  startButton.addEventListener("click", backToStart);
+
+  // automatically scroll to start on begin
+  sleep(500).then(backToStart);
 }
 
 // load tech tree from JSON file
