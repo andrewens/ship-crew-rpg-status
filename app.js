@@ -1,4 +1,4 @@
-// import graphJson from "./tech-tree.json" assert { type: "json" }; // this isn't supported by Mozilla FireFox
+// import graphJson from "./tech-tree.json" assert { type: "json" }; // this isn't supported by Mozilla FireFox or Safari
 const techTreeContainer = document.querySelector(".tech-tree");
 const techTreeEdgesContainer = document.querySelector(".tech-tree-edges");
 const startButton = document.querySelector(".start-btn");
