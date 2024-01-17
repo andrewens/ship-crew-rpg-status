@@ -4,7 +4,8 @@
       "dependencies": ["mvp"],
       "icon": "assets/graph.png",
       "display-name": "Development as a Skill Tree",
-      "blurb": "Define high-level project tasks as upgrades in a skill tree, rendered as a website (the one you're looking at right now)"
+      "blurb": "Define high-level project tasks as upgrades in a skill tree, rendered as a website (the one you're looking at right now)",
+      "completed": "1-16-2024"
     },
     "chronological-project-status": {
       "dependencies": ["status-website"],
@@ -60,13 +61,8 @@
       "dependencies": ["mvp"],
       "icon": "assets/paint-palette.png",
       "display-name": "Cascading Stylesheets for Lua",
-      "blurb": "Separate UI appearance / styling code from functional code"
-    },
-    "physics-lab": {
-      "dependencies": ["mvp"],
-      "icon": "assets/beaker.png",
-      "display-name": "Automated Testing for Physics",
-      "blurb": "Run physics experiments in parallel for integration testing physics-based features"
+      "blurb": "Separate UI appearance / styling code from functional code",
+      "completed": "10-1-2023"
     },
     "beta-deployments": {
       "dependencies": ["devops-status"],
@@ -78,10 +74,10 @@
   "misc": {
     "discord-community": {
       "dependencies": [],
-      "icon": "assets/default-icon.png",
+      "icon": "assets/discord.png",
       "display-name": "Discord Community Server",
-      "blurb": "Friends and family playtesters",
-      "completed": "df;khjghjdkfhkfldh"
+      "blurb": "Gather a following of friends and family to help test my game",
+      "completed": "1-1-2023"
     },
     "mvp": {
       "dependencies": ["discord-community"],
@@ -177,7 +173,7 @@
       "blurb": "The game can save/load flat 2d rooms, which are a collection of blocks and air"
     },
     "moving-objects": {
-      "dependencies": ["physics-lab", "ship-environment", "world-environment"],
+      "dependencies": ["ship-environment", "world-environment"],
       "icon": "assets/soccer-balls.jpg",
       "display-name": "Inanimate Moving Objects",
       "blurb": "The game can save/load objects that feel gravity & collide with blocks"

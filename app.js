@@ -9,7 +9,7 @@ const LOCK_ICON = "assets/lock.png";
 const UNKNOWN_ICON = "assets/question-mark.png";
 const IN_PROGRESS_ICON = "assets/in-progress.png";
 
-const UNKNOWN_INDEX = 20; // completionIndex at which nodes are marked unknown instead of just locked
+const UNKNOWN_INDEX = 2; // completionIndex at which nodes are marked unknown instead of just locked
 // completionIndex=0 for nodes that are completed; completionIndex=1 for nodes that have a completed dependency; etc etc
 const BIG_NUMBER = 10 ^ 6; // completion index can't be bigger than this... idk how javascript works yet lol
 
