@@ -5,7 +5,9 @@
       "icon": "assets/graph.png",
       "display-name": "Development as a Skill Tree",
       "blurb": "Define high-level project tasks as upgrades in a skill tree, rendered as a website (the one you're looking at right now)",
-      "completed": "1-16-2024"
+      "completed": "1-16-2024",
+      "link": "https://andrewens.dev/ship-crew-rpg-status/",
+      "link-text": "See it here"
     },
     "chronological-project-status": {
       "dependencies": ["status-website"],
@@ -36,7 +38,9 @@
       "icon": "assets/command-line.png",
       "display-name": "Custom Command Prompt",
       "blurb": "Developers can write CLI tools used inside of ROBLOX games",
-      "completed": "12-12-23"
+      "completed": "12-12-23",
+      "link": "https://www.roblox.com/games/15359714312/roblox-console",
+      "link-text": "Test it here"
     },
     "command-windows": {
       "dependencies": ["command-prompt"],
@@ -49,7 +53,9 @@
       "icon": "assets/check-mark-shield.png",
       "display-name": "Acceptance Testing Tool",
       "blurb": "Write tests that any user can play and verify using the command line",
-      "completed": "1-1-2024"
+      "completed": "1-1-2024",
+      "link": "https://www.roblox.com/games/15589372711/gameplay-test-runner",
+      "link-text": "Test it here"
     },
     "devops-status": {
       "dependencies": ["mvp"],
@@ -62,7 +68,9 @@
       "icon": "assets/paint-palette.png",
       "display-name": "Cascading Stylesheets for Lua",
       "blurb": "Separate UI appearance / styling code from functional code",
-      "completed": "10-1-2023"
+      "completed": "10-1-2023",
+      "link": "https://www.roblox.com/games/15359714312/roblox-console",
+      "link-text": "See it here"
     },
     "beta-deployments": {
       "dependencies": ["devops-status"],
@@ -77,14 +85,18 @@
       "icon": "assets/discord.png",
       "display-name": "Discord Community Server",
       "blurb": "Gather a following of friends and family to help test my game",
-      "completed": "1-1-2023"
+      "completed": "1-1-2023",
+      "link": "https://discord.gg/enmKEVMKva",
+      "link-text": "Server Invite"
     },
     "mvp": {
       "dependencies": ["discord-community"],
       "icon": "assets/blueprint.png",
       "display-name": "Minimum Viable Product",
       "blurb": "Build a prototype with the core functionality of the game and test if it's fun.",
-      "completed": "12-12-23"
+      "completed": "12-12-23",
+      "link": "https://www.roblox.com/games/13403894524/Cargo",
+      "link-text": "Play it here"
     }
   },
   "render": {

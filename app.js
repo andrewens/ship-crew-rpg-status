@@ -14,7 +14,7 @@ const UNKNOWN_INDEX = 2; // completionIndex at which nodes are marked unknown in
 const BIG_NUMBER = 10 ^ 6; // completion index can't be bigger than this... idk how javascript works yet lol
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 function unpackGraphDependencies(dependencies) {
   // @return: Array rowIndexToNodes (int rowIndex --> [ string nodeName ])
@@ -156,7 +156,9 @@ function generateTechTree(techTreeJson) {
       const nodeName = rowIndexToNodes[i][j];
       const completionIndex = nodeToCompletionIndex[nodeName];
       const upgrade = techTreeUpgrades[nodeName];
-      const isInProgress = (upgrade.started != null);
+      const isInProgress = upgrade.started != null;
+      const link = upgrade.link;
+      const linkText = upgrade["link-text"];
 
       // appearance varies depending on completionIndex
       var displayedImg;
@@ -171,8 +173,12 @@ function generateTechTree(techTreeJson) {
       var displayText = "";
       if (completionIndex < UNKNOWN_INDEX) {
         const displayName = upgrade["display-name"] || nodeName;
-        const blurb = upgrade.blurb || ""; 
-        displayText = "<h3>" + displayName + "</h3>" + blurb;
+        const blurb = upgrade.blurb || "";
+        displayText = "<h3>" + displayName + "</h3><p>" + blurb + "</p>";
+
+        if (link) {
+          displayText += '<a href="' + link + '">' + (linkText || link) + "</a>";
+        }
       }
 
       // create node element
@@ -260,8 +266,8 @@ function generateTechTree(techTreeJson) {
     const firstNodeIcon = nodeIcons[firstNodeName];
     if (firstNodeIcon) {
       firstNodeIcon.scrollIntoView({
-        "block": "center",
-        "inline": "center"
+        block: "center",
+        inline: "center",
       });
     }
   }
@@ -273,10 +279,10 @@ function generateTechTree(techTreeJson) {
 
 // load tech tree from JSON file
 fetch(TECH_TREE_FILE)
-.then(function(response) {
-  if (!response.ok) {
-    throw new Error("HTTP error " + response.status);
-  }
-  return response.json();
-})
-.then(generateTechTree);
+  .then(function (response) {
+    if (!response.ok) {
+      throw new Error("HTTP error " + response.status);
+    }
+    return response.json();
+  })
+  .then(generateTechTree);
