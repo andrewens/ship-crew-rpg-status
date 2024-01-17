@@ -1,102 +1,91 @@
 {
-  "tools": {
-    "status-website": {
-      "dependencies": ["mvp"],
-      "icon": "assets/graph.png",
-      "display-name": "Development as a Skill Tree",
-      "blurb": "Define high-level project tasks as upgrades in a skill tree, rendered as a website (the one you're looking at right now)",
-      "completed": "1-16-2024",
-      "link": "https://andrewens.dev/ship-crew-rpg-status/",
-      "link-text": "See it here"
-    },
-    "chronological-project-status": {
-      "dependencies": ["status-website"],
-      "icon": "assets/calendar.png",
-      "display-name": "Chronological Project Status",
-      "blurb": "Render game upgrades in a timeline to view project velocity/history"
-    },
-    "categorical-project-status": {
-      "dependencies": ["status-website"],
-      "icon": "assets/boxes.png",
-      "display-name": "Categorical Project Status",
-      "blurb": "Render game upgrades by category, to assess balance"
-    },
+  "tools-moved-for-graph-layout": {
     "pretty-status-website": {
       "dependencies": ["planar-skill-tree"],
       "icon": "assets/glow-up.png",
       "display-name": "A Pretty Project Status Website",
       "blurb": "Make the project status website look like the Github or Spacex website to impress newcomers"
-    },
-    "planar-skill-tree": {
-      "dependencies": ["status-website"],
-      "icon": "assets/default-icon.png",
-      "display-name": "Remove Edge Crossings from Skill Tree",
-      "blurb": "Implement a planar graph drawing algorithm from Tutte (1962) and Hopcroft and Tarjan (1974)"
-    },
-    "command-prompt": {
-      "dependencies": ["mvp"],
-      "icon": "assets/command-line.png",
-      "display-name": "Custom Command Prompt",
-      "blurb": "Developers can write CLI tools used inside of ROBLOX games",
-      "completed": "12-12-23",
-      "link": "https://www.roblox.com/games/15359714312/roblox-console",
-      "link-text": "Test it here"
-    },
-    "command-windows": {
-      "dependencies": ["command-prompt"],
-      "icon": "assets/browser-windows.png",
-      "display-name": "Multiple Command Windows",
-      "blurb": "Open/close multiple tabs or windows of command prompts"
-    },
-    "user-testing": {
-      "dependencies": ["command-prompt"],
-      "icon": "assets/check-mark-shield.png",
-      "display-name": "Acceptance Testing Tool",
-      "blurb": "Write tests that any user can play and verify using the command line",
-      "completed": "1-1-2024",
-      "link": "https://www.roblox.com/games/15589372711/gameplay-test-runner",
-      "link-text": "Test it here"
-    },
-    "devops-status": {
-      "dependencies": ["mvp"],
-      "icon": "assets/status.png",
-      "display-name": "Live Server Status",
-      "blurb": "Send error reports to a discord channel to find bugs"
-    },
-    "rcss": {
-      "dependencies": ["mvp"],
-      "icon": "assets/paint-palette.png",
-      "display-name": "Cascading Stylesheets for Lua",
-      "blurb": "Separate UI appearance / styling code from functional code",
-      "completed": "10-1-2023",
-      "link": "https://www.roblox.com/games/15359714312/roblox-console",
-      "link-text": "See it here"
-    },
-    "beta-deployments": {
-      "dependencies": ["devops-status"],
-      "icon": "assets/deployment.png",
-      "display-name": "Beta Deployments",
-      "blurb": "Deploy new features to only a single server to test for bugs"
     }
   },
-  "misc": {
-    "discord-community": {
-      "dependencies": [],
-      "icon": "assets/discord.png",
-      "display-name": "Discord Community Server",
-      "blurb": "Gather a following of friends and family to help test my game",
-      "completed": "1-1-2023",
-      "link": "https://discord.gg/enmKEVMKva",
-      "link-text": "Server Invite"
+  "physics": {
+    "world-environment": {
+      "dependencies": ["user-testing"],
+      "icon": "assets/earth.jpg",
+      "display-name": "Round Planets",
+      "blurb": "The game can save/load round 2d worlds, which are a collection of blocks and air"
     },
-    "mvp": {
-      "dependencies": ["discord-community"],
-      "icon": "assets/blueprint.png",
-      "display-name": "Minimum Viable Product",
-      "blurb": "Build a prototype with the core functionality of the game and test if it's fun.",
-      "completed": "12-12-23",
-      "link": "https://www.roblox.com/games/13403894524/Cargo",
-      "link-text": "Play it here"
+    "ship-environment": {
+      "dependencies": ["user-testing"],
+      "icon": "assets/shop.jpg",
+      "display-name": "Insides of Spaceships & Buildings",
+      "blurb": "The game can save/load flat 2d rooms, which are a collection of blocks and air"
+    },
+    "moving-objects": {
+      "dependencies": ["physics-tests"],
+      "icon": "assets/soccer-balls.jpg",
+      "display-name": "Inanimate Moving Objects",
+      "blurb": "The game can save/load objects that feel gravity & collide with blocks"
+    },
+    
+    "characters": {
+      "dependencies": ["moving-objects"],
+      "icon": "assets/character.png",
+      "display-name": "Characters",
+      "blurb": "The game can spawn characters, which die, respawn, move, and jump"
+    },
+    "proximity-prompt": {
+      "dependencies": ["characters"],
+      "icon": "assets/help-dialog.png",
+      "display-name": "Interactive Buttons",
+      "blurb": "Characters can walk up to button blocks & press them"
+    },
+    "doors": {
+      "dependencies": ["proximity-prompt"],
+      "icon": "assets/door.png",
+      "display-name": "Doors Into Buildings",
+      "blurb": "Characters can walk into / out of ships/buildings, which have a bigger, separate environment on the 'inside'"
+    },
+    "chairs": {
+      "dependencies": ["proximity-prompt"],
+      "icon": "assets/chair.png",
+      "display-name": "Sitting in Chairs",
+      "blurb": "Characters can sit in chairs"
+    },
+    "gravitational-stability": {
+      "dependencies": ["moving-objects"],
+      "icon": "assets/saturn.png",
+      "display-name": "Stable Orbits",
+      "blurb": "Stable celestial bodies are guaranteed not to crash into each other and create a mess"
+    },
+    "meteors": {
+      "dependencies": ["first-solar-system"],
+      "icon": "assets/meteor-shower.png",
+      "display-name": "Meteor Showers",
+      "blurb": "Objects can enter worlds from space, and vice versa"
+    },
+    "spaceships": {
+      "dependencies": ["chairs", "doors", "meteors"],
+      "icon": "assets/spaceship.png",
+      "display-name": "Fly Spaceships",
+      "blurb": "Characters can fly spaceships between worlds"
+    },
+    "basic-autopilot": {
+      "dependencies": ["spaceships"],
+      "icon": "assets/autopilot.jpg",
+      "display-name": "Basic Ship Autopilot",
+      "blurb": "Spaceships can automatically fly to destination world coordinates or orbital paths"
+    },
+    "advanced-autopilot": {
+      "dependencies": ["basic-autopilot"],
+      "icon": "assets/computer-chip.png",
+      "display-name": "Autopilot Avoids Moving Obstacles",
+      "blurb": "Spaceship autopilot actively avoids crashing into other moving objects"
+    },
+    "spaceship-lifecycle": {
+      "dependencies": ["spaceships", "lobby"], 
+      "icon": "assets/recycle.png",
+      "display-name": "Spaceships Can Be Destroyed",
+      "blurb": "Spaceships can be destroyed, and respawn at the lobby"
     }
   },
   "render": {
@@ -145,6 +134,111 @@
       "blurb": "Players spawn in a space station, where they join ship crews"
     }
   },
+  "tools": {
+    "status-website": {
+      "dependencies": ["mvp"],
+      "icon": "assets/graph.png",
+      "display-name": "Development as a Skill Tree",
+      "blurb": "Define high-level project tasks as upgrades in a skill tree, rendered as a website (the one you're looking at right now)",
+      "completed": "1-16-2024",
+      "link": "https://andrewens.dev/ship-crew-rpg-status/",
+      "link-text": "See it here"
+    },
+    "chronological-project-status": {
+      "dependencies": ["status-website"],
+      "icon": "assets/calendar.png",
+      "display-name": "Chronological Project Status",
+      "blurb": "Render game upgrades in a timeline to view project velocity/history"
+    },
+    "categorical-project-status": {
+      "dependencies": ["status-website"],
+      "icon": "assets/boxes.png",
+      "display-name": "Categorical Project Status",
+      "blurb": "Render game upgrades by category, to assess balance"
+    },
+    "planar-skill-tree": {
+      "dependencies": ["status-website"],
+      "icon": "assets/big-dipper.png",
+      "display-name": "Remove Edge Crossings from Skill Tree",
+      "blurb": "Implement a planar graph drawing algorithm from Tutte (1962) and Hopcroft and Tarjan (1974)"
+    },
+    "user-testing": {
+      "dependencies": ["command-prompt"],
+      "icon": "assets/check-mark-shield.png",
+      "display-name": "Acceptance Testing Tool",
+      "blurb": "Write tests that any user can play and verify using the command line",
+      "completed": "1-1-2024",
+      "link": "https://www.roblox.com/games/15589372711/gameplay-test-runner",
+      "link-text": "Test it here"
+    },
+    "command-prompt": {
+      "dependencies": ["mvp"],
+      "icon": "assets/command-line.png",
+      "display-name": "Custom Command Prompt",
+      "blurb": "Developers can write CLI tools used inside of ROBLOX games",
+      "completed": "12-12-23",
+      "link": "https://www.roblox.com/games/15359714312/roblox-console",
+      "link-text": "Test it here"
+    },
+    "custom-textbox": {
+      "dependencies": ["command-prompt"],
+      "icon": "assets/textbox.png",
+      "display-name": "Custom Textbox UI",
+      "blurb": "Fix ROBLOX TextBox bugs by creating a custom implementation"
+    },
+    "command-windows": {
+      "dependencies": ["command-prompt"],
+      "icon": "assets/browser-windows.png",
+      "display-name": "Multiple Command Windows",
+      "blurb": "Open/close multiple tabs or windows of command prompts"
+    },
+    "devops-status": {
+      "dependencies": ["spaceship-lifecycle"],
+      "icon": "assets/status.png",
+      "display-name": "Live Server Status",
+      "blurb": "Send error reports to a discord channel to find bugs"
+    },
+    "rcss": {
+      "dependencies": ["characters"],
+      "icon": "assets/paint-palette.png",
+      "display-name": "Cascading Stylesheets for Lua",
+      "blurb": "Separate UI appearance / styling code from functional code",
+      "link": "https://www.roblox.com/games/15359714312/roblox-console",
+      "link-text": "See it here"
+    },
+    "beta-deployments": {
+      "dependencies": ["devops-status"],
+      "icon": "assets/deployment.png",
+      "display-name": "Beta Deployments",
+      "blurb": "Deploy new features to only a single server to test for bugs"
+    },
+    "physics-tests": {
+      "dependencies": ["world-environment", "ship-environment"],
+      "icon": "assets/beaker.png",
+      "display-name": "Automated Physics Testing",
+      "blurb": "Run physics integration tests in parallel for test-driven development"
+    }
+  },
+  "misc": {
+    "discord-community": {
+      "dependencies": [],
+      "icon": "assets/discord.png",
+      "display-name": "Discord Community Server",
+      "blurb": "Gather a following of friends and family to help test my game",
+      "completed": "1-1-2023",
+      "link": "https://discord.gg/enmKEVMKva",
+      "link-text": "Server Invite"
+    },
+    "mvp": {
+      "dependencies": ["discord-community"],
+      "icon": "assets/blueprint.png",
+      "display-name": "Minimum Viable Product",
+      "blurb": "Build a prototype with the core functionality of the game and test if it's fun.",
+      "completed": "12-12-23",
+      "link": "https://www.roblox.com/games/13403894524/Cargo",
+      "link-text": "Play it here"
+    }
+  },
   "player-controls": {
     "camera-tracking": {
       "dependencies": ["moving-objects"],
@@ -153,7 +247,7 @@
       "blurb": "The player's camera can track a moving object in any environment"
     },
     "character-controls": {
-      "dependencies": ["characters", "camera-tracking"],
+      "dependencies": ["keybinds", "camera-tracking"],
       "icon": "assets/keyboard.png",
       "display-name": "Character Controls",
       "blurb": "Players can spawn a character they control with keyboard/mouse"
@@ -169,100 +263,19 @@
       "icon": "assets/xbox-controller.png",
       "display-name": "XBox Controls",
       "blurb": "Players can control characters on the xbox"
-    }
-  },
-  "physics": {
-    "world-environment": {
-      "dependencies": ["user-testing"],
-      "icon": "assets/earth.jpg",
-      "display-name": "Round Planets",
-      "blurb": "The game can save/load round 2d worlds, which are a collection of blocks and air"
     },
-    "ship-environment": {
-      "dependencies": ["user-testing"],
-      "icon": "assets/shop.jpg",
-      "display-name": "Insides of Spaceships & Buildings",
-      "blurb": "The game can save/load flat 2d rooms, which are a collection of blocks and air"
-    },
-    "moving-objects": {
-      "dependencies": ["ship-environment", "world-environment"],
-      "icon": "assets/soccer-balls.jpg",
-      "display-name": "Inanimate Moving Objects",
-      "blurb": "The game can save/load objects that feel gravity & collide with blocks"
-    },
-    "gravitational-stability": {
-      "dependencies": ["moving-objects"],
-      "icon": "assets/saturn.png",
-      "display-name": "Stable Orbits",
-      "blurb": "Stable celestial bodies are guaranteed not to crash into each other and create a mess"
-    },
-    "characters": {
-      "dependencies": ["moving-objects"],
-      "icon": "assets/character.png",
-      "display-name": "Characters",
-      "blurb": "The game can spawn characters, which die, respawn, move, and jump"
-    },
-    "proximity-prompt": {
-      "dependencies": ["characters"],
-      "icon": "assets/help-dialog.png",
-      "display-name": "Interactive Buttons",
-      "blurb": "Characters can walk up to button blocks & press them"
-    },
-    "doors": {
-      "dependencies": ["proximity-prompt"],
-      "icon": "assets/door.png",
-      "display-name": "Doors Into Buildings",
-      "blurb": "Characters can walk into / out of ships/buildings, which have a bigger, separate environment on the 'inside'"
-    },
-    "chairs": {
-      "dependencies": ["proximity-prompt"],
-      "icon": "assets/chair.png",
-      "display-name": "Sitting in Chairs",
-      "blurb": "Characters can sit in chairs"
-    },
-    "meteors": {
-      "dependencies": ["first-solar-system"],
-      "icon": "assets/meteor-shower.png",
-      "display-name": "Meteor Showers",
-      "blurb": "Objects can enter worlds from space, and vice versa"
-    },
-    "spaceships": {
-      "dependencies": ["chairs", "doors", "meteors"],
-      "icon": "assets/spaceship.png",
-      "display-name": "Fly Spaceships",
-      "blurb": "Characters can fly spaceships between worlds"
-    },
-    "basic-autopilot": {
-      "dependencies": ["spaceships"],
-      "icon": "assets/autopilot.jpg",
-      "display-name": "Basic Ship Autopilot",
-      "blurb": "Spaceships can automatically fly to destination world coordinates or orbital paths"
-    },
-    "advanced-autopilot": {
-      "dependencies": ["basic-autopilot"],
-      "icon": "assets/computer-chip.png",
-      "display-name": "Autopilot Avoids Moving Obstacles",
-      "blurb": "Spaceship autopilot actively avoids crashing into other moving objects"
-    },
-    "spaceship-lifecycle": {
-      "dependencies": ["spaceships", "lobby"], 
-      "icon": "assets/recycle.png",
-      "display-name": "Spaceships Can Be Destroyed",
-      "blurb": "Spaceships can be destroyed, and respawn at the lobby"
-    }
-  },
-  "user-interface": {
     "keybinds": {
-      "dependencies": ["character-controls"],
+      "dependencies": ["rcss"],
       "icon": "assets/keyboard.png",
       "display-name": "Set Custom Keybinds",
       "blurb": "Players can change which buttons do what controls"
     },
     "leaderboard": {
-      "dependencies": ["character-controls"],
+      "dependencies": ["rcss"],
       "icon": "assets/leaderboard.png",
       "display-name": "Server Leaderboard",
       "blurb": "Players can see who else is playing with them"
     }
   }
+  
 }

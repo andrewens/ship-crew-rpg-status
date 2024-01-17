@@ -11,6 +11,8 @@ const IN_PROGRESS_ICON = "assets/in-progress.png";
 
 const UNKNOWN_INDEX = 2; // completionIndex at which nodes are marked unknown instead of just locked
 // completionIndex=0 for nodes that are completed; completionIndex=1 for nodes that have a completed dependency; etc etc
+const FORCE_DISPLAY_ICONS = false; // set to false for lock icons
+
 const BIG_NUMBER = 10 ^ 6; // completion index can't be bigger than this... idk how javascript works yet lol
 
 function sleep(ms) {
@@ -162,12 +164,14 @@ function generateTechTree(techTreeJson) {
 
       // appearance varies depending on completionIndex
       var displayedImg;
-      if (completionIndex >= UNKNOWN_INDEX) {
-        displayedImg = UNKNOWN_ICON;
-      } else if (completionIndex >= 1) {
-        displayedImg = isInProgress ? IN_PROGRESS_ICON : LOCK_ICON;
-      } else {
+      if (FORCE_DISPLAY_ICONS || completionIndex <= 0) {
         displayedImg = upgrade.icon || DEFAULT_ICON;
+      }
+      else if (completionIndex < UNKNOWN_INDEX) {
+        displayedImg = isInProgress ? IN_PROGRESS_ICON : LOCK_ICON;
+      }
+      else {
+        displayedImg = UNKNOWN_ICON;
       }
 
       var displayText = "";
@@ -273,7 +277,7 @@ function generateTechTree(techTreeJson) {
   }
   startButton.addEventListener("click", backToStart);
 
-  // automatically scroll to start on begin
+  // automatically scroll to start on load page
   sleep(500).then(backToStart);
 }
 
