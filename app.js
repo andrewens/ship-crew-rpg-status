@@ -161,6 +161,7 @@ function generateTechTree(techTreeJson) {
       const isInProgress = upgrade.started != null;
       const link = upgrade.link;
       const linkText = upgrade["link-text"];
+      const linksDictionary = upgrade.links;
 
       // appearance varies depending on completionIndex
       var displayedImg;
@@ -180,6 +181,12 @@ function generateTechTree(techTreeJson) {
         const blurb = upgrade.blurb || "";
         displayText = "<h3>" + displayName + "</h3><p>" + blurb + "</p>";
 
+        if (linksDictionary) {
+          for (var thisLinkText in linksDictionary) {
+            const href = linksDictionary[thisLinkText];
+            displayText += '<a href="' + href + '">' + thisLinkText + "</a><br>";
+          }
+        }
         if (link) {
           displayText += '<a href="' + link + '">' + (linkText || link) + "</a>";
         }

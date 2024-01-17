@@ -141,8 +141,10 @@
       "display-name": "Development as a Skill Tree",
       "blurb": "Define high-level project tasks as upgrades in a skill tree, rendered as a website (the one you're looking at right now)",
       "completed": "1-16-2024",
-      "link": "https://andrewens.dev/ship-crew-rpg-status/",
-      "link-text": "See it here"
+      "links": {
+        "Github repository": "https://github.com/andrewens/ship-crew-rpg-status",
+        "Website": "https://andrewens.dev/ship-crew-rpg-status/"
+      }
     },
     "chronological-project-status": {
       "dependencies": ["status-website"],
@@ -168,8 +170,10 @@
       "display-name": "Acceptance Testing Tool",
       "blurb": "Write tests that any user can play and verify using the command line",
       "completed": "1-1-2024",
-      "link": "https://www.roblox.com/games/15589372711/gameplay-test-runner",
-      "link-text": "Test it here"
+      "links": {
+        "Test it here": "https://www.roblox.com/games/15589372711/gameplay-test-runner",
+        "Github repository": "https://github.com/andrewens/gameplay-test-runner"
+      }
     },
     "command-prompt": {
       "dependencies": ["mvp"],
@@ -177,8 +181,10 @@
       "display-name": "Custom Command Prompt",
       "blurb": "Developers can write CLI tools used inside of ROBLOX games",
       "completed": "12-12-23",
-      "link": "https://www.roblox.com/games/15359714312/roblox-console",
-      "link-text": "Test it here"
+      "links": {
+        "Test it here": "https://www.roblox.com/games/15359714312/roblox-console",
+        "Github repository": "https://github.com/andrewens/roblox-console"
+      }
     },
     "custom-textbox": {
       "dependencies": ["command-prompt"],
@@ -203,8 +209,10 @@
       "icon": "assets/paint-palette.png",
       "display-name": "Cascading Stylesheets for Lua",
       "blurb": "Separate UI appearance / styling code from functional code",
-      "link": "https://www.roblox.com/games/15359714312/roblox-console",
-      "link-text": "See it here"
+      "links": {
+        "Test it here": "https://www.roblox.com/games/15359714312/roblox-console",
+        "Github repository": "https://github.com/andrewens/roblox-css"
+      }
     },
     "beta-deployments": {
       "dependencies": ["devops-status"],
