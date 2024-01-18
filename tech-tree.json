@@ -12,7 +12,8 @@
       "dependencies": ["user-testing"],
       "icon": "assets/earth.jpg",
       "display-name": "Round Planets",
-      "blurb": "The game can save/load round 2d worlds, which are a collection of blocks and air"
+      "blurb": "The game can save/load round 2d worlds, which are a collection of blocks and air",
+      "started": "1-18-24"
     },
     "ship-environment": {
       "dependencies": ["user-testing"],
