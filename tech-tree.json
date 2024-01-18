@@ -136,6 +136,12 @@
     }
   },
   "tools": {
+    "discord-voting-bot": {
+      "dependencies": ["status-website"],
+      "icon": "assets/discord.png",
+      "display-name": "Voting System",
+      "blurb": "Hide voting results until you've voted, only allow one vote per person"
+    },
     "status-website": {
       "dependencies": ["mvp"],
       "icon": "assets/graph.png",
@@ -146,6 +152,12 @@
         "Github repository": "https://github.com/andrewens/ship-crew-rpg-status",
         "Website": "https://andrewens.dev/ship-crew-rpg-status/"
       }
+    },
+    "planar-skill-tree": {
+      "dependencies": ["status-website"],
+      "icon": "assets/big-dipper.png",
+      "display-name": "Remove Edge Crossings from Skill Tree",
+      "blurb": "Implement a planar graph drawing algorithm from Tutte (1962) and Hopcroft and Tarjan (1974)"
     },
     "chronological-project-status": {
       "dependencies": ["status-website"],
@@ -158,12 +170,6 @@
       "icon": "assets/boxes.png",
       "display-name": "Categorical Project Status",
       "blurb": "Render game upgrades by category, to assess balance"
-    },
-    "planar-skill-tree": {
-      "dependencies": ["status-website"],
-      "icon": "assets/big-dipper.png",
-      "display-name": "Remove Edge Crossings from Skill Tree",
-      "blurb": "Implement a planar graph drawing algorithm from Tutte (1962) and Hopcroft and Tarjan (1974)"
     },
     "user-testing": {
       "dependencies": ["command-prompt"],
