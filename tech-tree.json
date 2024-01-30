@@ -1,100 +1,44 @@
 {
-  "tools-moved-for-graph-layout": {
+  "misc": {
     "pretty-status-website": {
       "dependencies": ["planar-skill-tree"],
       "icon": "assets/glow-up.png",
       "display-name": "A Pretty Project Status Website",
       "blurb": "Make the project status website look like the Github or Spacex website to impress newcomers"
-    }
-  },
-  "physics": {
-    "world-environment": {
-      "dependencies": ["user-testing"],
+    },
+
+    "mvp": {
+      "dependencies": ["discord-community"],
+      "icon": "assets/blueprint.png",
+      "display-name": "Minimum Viable Product",
+      "blurb": "Build a prototype with the core functionality of the game and test if it's fun.",
+      "completed": "12-12-23",
+      "link": "https://www.roblox.com/games/13403894524/Cargo",
+      "link-text": "Play it here"
+    },
+    "tilemaps": {
+      "dependencies": ["user-testing-beta"],
       "icon": "assets/earth.jpg",
-      "display-name": "Round Planets",
-      "blurb": "The game can save/load round 2d worlds, which are a collection of blocks and air",
-      "started": "1-18-24"
+      "display-name": "Round Planets & Ship Interiors",
+      "blurb": "The game can save/load grids of blocks, either in rectangles for ship/building interiors or round for planets",
+      "started": "1-18-24",
+      "completed": "1-30-24",
+      "links": {
+        "GIF #1": "https://gyazo.com/efcf4923f88895fc666217157eb1275a",
+        "GIF #2": "https://gyazo.com/91456c76b849ffdf16222610745ab78e"
+      }
     },
-    "ship-environment": {
-      "dependencies": ["user-testing"],
-      "icon": "assets/shop.jpg",
-      "display-name": "Insides of Spaceships & Buildings",
-      "blurb": "The game can save/load flat 2d rooms, which are a collection of blocks and air"
-    },
-    "moving-objects": {
-      "dependencies": ["physics-tests"],
-      "icon": "assets/soccer-balls.jpg",
-      "display-name": "Inanimate Moving Objects",
-      "blurb": "The game can save/load objects that feel gravity & collide with blocks"
-    },
-    
-    "characters": {
-      "dependencies": ["moving-objects"],
-      "icon": "assets/character.png",
-      "display-name": "Characters",
-      "blurb": "The game can spawn characters, which die, respawn, move, and jump"
-    },
-    "proximity-prompt": {
-      "dependencies": ["characters"],
-      "icon": "assets/help-dialog.png",
-      "display-name": "Interactive Buttons",
-      "blurb": "Characters can walk up to button blocks & press them"
-    },
-    "doors": {
-      "dependencies": ["proximity-prompt"],
-      "icon": "assets/door.png",
-      "display-name": "Doors Into Buildings",
-      "blurb": "Characters can walk into / out of ships/buildings, which have a bigger, separate environment on the 'inside'"
-    },
-    "chairs": {
-      "dependencies": ["proximity-prompt"],
-      "icon": "assets/chair.png",
-      "display-name": "Sitting in Chairs",
-      "blurb": "Characters can sit in chairs"
-    },
-    "gravitational-stability": {
-      "dependencies": ["moving-objects"],
-      "icon": "assets/saturn.png",
-      "display-name": "Stable Orbits",
-      "blurb": "Stable celestial bodies are guaranteed not to crash into each other and create a mess"
-    },
-    "meteors": {
-      "dependencies": ["first-solar-system"],
-      "icon": "assets/meteor-shower.png",
-      "display-name": "Meteor Showers",
-      "blurb": "Objects can enter worlds from space, and vice versa"
-    },
-    "spaceships": {
-      "dependencies": ["chairs", "doors", "meteors"],
-      "icon": "assets/spaceship.png",
-      "display-name": "Fly Spaceships",
-      "blurb": "Characters can fly spaceships between worlds"
-    },
-    "basic-autopilot": {
-      "dependencies": ["spaceships"],
-      "icon": "assets/autopilot.jpg",
-      "display-name": "Basic Ship Autopilot",
-      "blurb": "Spaceships can automatically fly to destination world coordinates or orbital paths"
-    },
-    "advanced-autopilot": {
-      "dependencies": ["basic-autopilot"],
-      "icon": "assets/computer-chip.png",
-      "display-name": "Autopilot Avoids Moving Obstacles",
-      "blurb": "Spaceship autopilot actively avoids crashing into other moving objects"
-    },
-    "spaceship-lifecycle": {
-      "dependencies": ["spaceships", "lobby"], 
-      "icon": "assets/recycle.png",
-      "display-name": "Spaceships Can Be Destroyed",
-      "blurb": "Spaceships can be destroyed, and respawn at the lobby"
-    }
-  },
-  "render": {
     "tile-textures": {
-      "dependencies": ["camera-tracking"],
+      "dependencies": ["tilemaps"],
       "icon": "assets/grass-block.webp",
       "display-name": "Render Tile Textures",
       "blurb": "Apply 8-bit style textures to blocks"
+    },
+    "characters": {
+      "dependencies": ["tilemaps"],
+      "icon": "assets/character.png",
+      "display-name": "Playable Characters",
+      "blurb": "Players can (re)spawn a character which moves, jumps, falls in gravity, takes damage, and dies"
     },
     "character-animations": {
       "dependencies": ["tile-textures", "characters"],
@@ -108,39 +52,39 @@
       "display-name": "Character Health Displays",
       "blurb": "Players can see their own health and when characters take damage"
     },
-    "day-night-cycle": {
-      "dependencies": ["first-solar-system"],
-      "icon": "assets/sun-moon.jpg",
-      "display-name": "Day/Night Cycle",
-      "blurb": "Suns are visible in the skies of worlds, relative to the orientation of the world and the character's position"
-    },
-    "starry-skies": {
-      "dependencies": ["day-night-cycle"],
-      "icon": "assets/starry-sky.jpg",
-      "display-name": "Starry Skies",
-      "blurb": "Night skies are filled with stars"
-    }
-  },
-  "world-design": {
     "first-solar-system": {
-      "dependencies": ["gravitational-stability"],
+      "dependencies": ["rcss"],
       "icon": "assets/solar-system.png",
       "display-name": "Build a Solar System",
       "blurb": "A set of planets, moons, and asteroids orbiting a single star"
+    },
+    "day-night-cycle": {
+      "dependencies": ["rcss"],
+      "icon": "assets/sun-moon.jpg",
+      "display-name": "Day/Night Cycle",
+      "blurb": "Suns are visible in the skies of worlds, relative to the orientation of the world and the character's position"
     },
     "lobby": {
       "dependencies": ["first-solar-system"],
       "icon": "assets/space-station.png",
       "display-name": "Space Station Lobby",
       "blurb": "Players spawn in a space station, where they join ship crews"
-    }
-  },
-  "tools": {
-    "discord-voting-bot": {
-      "dependencies": ["status-website"],
+    },
+    "starry-skies": {
+      "dependencies": ["day-night-cycle"],
+      "icon": "assets/starry-sky.jpg",
+      "display-name": "Starry Skies",
+      "blurb": "Night skies are filled with stars"
+    },
+  
+    "discord-community": {
+      "dependencies": [],
       "icon": "assets/discord.png",
-      "display-name": "Voting System",
-      "blurb": "Hide voting results until you've voted, only allow one vote per person"
+      "display-name": "Discord Community Server",
+      "blurb": "Gather a following of friends and family to help test my game",
+      "completed": "1-1-2023",
+      "link": "https://discord.gg/enmKEVMKva",
+      "link-text": "Server Invite"
     },
     "status-website": {
       "dependencies": ["mvp"],
@@ -157,7 +101,7 @@
       "dependencies": ["status-website"],
       "icon": "assets/big-dipper.png",
       "display-name": "Remove Edge Crossings from Skill Tree",
-      "blurb": "Implement a planar graph drawing algorithm from Tutte (1962) and Hopcroft and Tarjan (1974)"
+      "blurb": "Implement a planar graph drawing algorithm using Canonical Order & Shift method"
     },
     "chronological-project-status": {
       "dependencies": ["status-website"],
@@ -165,16 +109,10 @@
       "display-name": "Chronological Project Status",
       "blurb": "Render game upgrades in a timeline to view project velocity/history"
     },
-    "categorical-project-status": {
-      "dependencies": ["status-website"],
-      "icon": "assets/boxes.png",
-      "display-name": "Categorical Project Status",
-      "blurb": "Render game upgrades by category, to assess balance"
-    },
-    "user-testing": {
-      "dependencies": ["command-prompt"],
+    "user-testing-beta": {
+      "dependencies": ["command-prompt-beta"],
       "icon": "assets/check-mark-shield.png",
-      "display-name": "Acceptance Testing Tool",
+      "display-name": "Acceptance Testing Tool (Beta)",
       "blurb": "Write tests that any user can play and verify using the command line",
       "completed": "1-1-2024",
       "links": {
@@ -182,10 +120,16 @@
         "Github repository": "https://github.com/andrewens/gameplay-test-runner"
       }
     },
-    "command-prompt": {
+    "user-testing-v1": {
+      "dependencies": ["user-testing-beta", "command-prompt-v1"],
+      "icon": "assets/check-mark-shield.png",
+      "display-name": "Acceptance Testing Tool Version 1.0",
+      "blurb": "Rewrite Acceptance Testing Tool with unit tests to create a robust API"
+    },
+    "command-prompt-beta": {
       "dependencies": ["mvp"],
       "icon": "assets/command-line.png",
-      "display-name": "Custom Command Prompt",
+      "display-name": "Custom Command Prompt (Beta)",
       "blurb": "Developers can write CLI tools used inside of ROBLOX games",
       "completed": "12-12-23",
       "links": {
@@ -193,23 +137,29 @@
         "Github repository": "https://github.com/andrewens/roblox-console"
       }
     },
-    "custom-textbox": {
-      "dependencies": ["command-prompt"],
+    "command-prompt-v1": {
+      "dependencies": ["command-prompt-beta"],
       "icon": "assets/textbox.png",
-      "display-name": "Custom Textbox UI",
-      "blurb": "Fix ROBLOX TextBox bugs by creating a custom implementation"
+      "display-name": "Command Prompt Version 1.0",
+      "blurb": "Fix ROBLOX TextBox bugs by creating a custom TextBox implementation; write unit tests to create robust software"
     },
     "command-windows": {
-      "dependencies": ["command-prompt"],
+      "dependencies": ["command-prompt-v1"],
       "icon": "assets/browser-windows.png",
       "display-name": "Multiple Command Windows",
       "blurb": "Open/close multiple tabs or windows of command prompts"
     },
     "devops-status": {
-      "dependencies": ["spaceship-lifecycle"],
+      "dependencies": ["lobby"],
       "icon": "assets/status.png",
       "display-name": "Live Server Status",
       "blurb": "Send error reports to a discord channel to find bugs"
+    },
+    "beta-deployments": {
+      "dependencies": ["devops-status"],
+      "icon": "assets/deployment.png",
+      "display-name": "Beta Deployments",
+      "blurb": "Deploy new features to only a single server to test for bugs"
     },
     "rcss": {
       "dependencies": ["characters"],
@@ -220,77 +170,6 @@
         "Test it here": "https://www.roblox.com/games/15359714312/roblox-console",
         "Github repository": "https://github.com/andrewens/roblox-css"
       }
-    },
-    "beta-deployments": {
-      "dependencies": ["devops-status"],
-      "icon": "assets/deployment.png",
-      "display-name": "Beta Deployments",
-      "blurb": "Deploy new features to only a single server to test for bugs"
-    },
-    "physics-tests": {
-      "dependencies": ["world-environment", "ship-environment"],
-      "icon": "assets/beaker.png",
-      "display-name": "Automated Physics Testing",
-      "blurb": "Run physics integration tests in parallel for test-driven development"
-    }
-  },
-  "misc": {
-    "discord-community": {
-      "dependencies": [],
-      "icon": "assets/discord.png",
-      "display-name": "Discord Community Server",
-      "blurb": "Gather a following of friends and family to help test my game",
-      "completed": "1-1-2023",
-      "link": "https://discord.gg/enmKEVMKva",
-      "link-text": "Server Invite"
-    },
-    "mvp": {
-      "dependencies": ["discord-community"],
-      "icon": "assets/blueprint.png",
-      "display-name": "Minimum Viable Product",
-      "blurb": "Build a prototype with the core functionality of the game and test if it's fun.",
-      "completed": "12-12-23",
-      "link": "https://www.roblox.com/games/13403894524/Cargo",
-      "link-text": "Play it here"
-    }
-  },
-  "player-controls": {
-    "camera-tracking": {
-      "dependencies": ["moving-objects"],
-      "icon": "assets/camera.png",
-      "display-name": "Camera Tracking",
-      "blurb": "The player's camera can track a moving object in any environment"
-    },
-    "character-controls": {
-      "dependencies": ["keybinds", "camera-tracking"],
-      "icon": "assets/keyboard.png",
-      "display-name": "Character Controls",
-      "blurb": "Players can spawn a character they control with keyboard/mouse"
-    },
-    "mobile-character-controls": {
-      "dependencies": ["character-controls"],
-      "icon": "assets/phone-controller.jpg",
-      "display-name": "Mobile Controls",
-      "blurb": "Players can control characters on mobile devices"
-    },
-    "xbox-character-controls": {
-      "dependencies": ["character-controls"],
-      "icon": "assets/xbox-controller.png",
-      "display-name": "XBox Controls",
-      "blurb": "Players can control characters on the xbox"
-    },
-    "keybinds": {
-      "dependencies": ["rcss"],
-      "icon": "assets/keyboard.png",
-      "display-name": "Set Custom Keybinds",
-      "blurb": "Players can change which buttons do what controls"
-    },
-    "leaderboard": {
-      "dependencies": ["rcss"],
-      "icon": "assets/leaderboard.png",
-      "display-name": "Server Leaderboard",
-      "blurb": "Players can see who else is playing with them"
     }
   }
-  
 }
