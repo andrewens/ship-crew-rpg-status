@@ -39,7 +39,8 @@
       "dependencies": ["tilemaps"],
       "icon": "assets/character.png",
       "display-name": "Playable Characters",
-      "blurb": "Players can (re)spawn a character which moves, jumps, falls in gravity, takes damage, and dies"
+      "blurb": "Players can (re)spawn a character which moves, jumps, falls in gravity, takes damage, and dies",
+      "started": "1-31-2024"
     },
     "character-animations": {
       "dependencies": ["tile-textures", "characters"],
